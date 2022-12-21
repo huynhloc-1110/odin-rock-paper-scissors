@@ -32,3 +32,32 @@ function getUserChoice() {
 
   return input;
 }
+
+function displayWinner(userChoice, computerChoice) {
+  if (userChoice == "rock") {
+    if (computerChoice == "paper")
+      return "You Lose! Paper beats Rock";
+    else if (computerChoice == "scissors")
+      return "You Win! Rock beats Scissors"
+    else
+      return "Draw! Both choose Rock"
+  }
+
+  if (userChoice == "paper") {
+    if (computerChoice == "scissors")
+      return "You Lose! Scissors beat Paper";
+    else if (computerChoice == "rock")
+      return "You Win! Paper beats Rock";
+    else
+      return "Draw! Both choose Paper"
+  }
+
+  if (userChoice == "scissors") {
+    if (computerChoice == "rock")
+      return "You Lose! Rock beats Scissors";
+    else if (computerChoice == "paper")
+      return "You Win! Scissors beat Paper";
+    else
+      return "Draw! Both choose Scissors";
+  }
+}
