@@ -10,3 +10,25 @@ function getComputerChoice() {
   else
     return "scissors";
 }
+
+function getUserChoice() {
+  let input;
+
+  // loop
+  while(true) {
+    // get input from prompt
+    input = prompt("Enter 'rock', 'paper' or 'scissors':");
+    
+    // if input is null, execute the loop again
+    if (input == null) continue;
+
+    // change input to lower case
+    input = input.toLowerCase();
+
+    // if input is rock, paper or scissors, break the loop
+    if (input == "rock" || input == "paper" || input == "scissors")
+      break;
+  }
+
+  return input;
+}
