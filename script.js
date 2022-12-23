@@ -43,6 +43,31 @@ function updateScore(resultFlag) {
     comScoreNode.textContent = ++comScore;
 }
 
+function checkEndGame() {
+  if (playerScore < 5 && comScore < 5)
+    return false;
+  return true;
+}
+
+function displayFinalResult() {
+  const finalResult = document.querySelector('#final-result');
+  finalResult.textContent = "Final result: ";
+  if (playerScore > comScore)
+    finalResult.textContent += "YOU WIN!";
+  else
+    finalResult.textContent += "YOU LOSE.";
+}
+
+function restartGame() {
+  document.body.removeChild(restartBtn);
+
+  playerScore = 0;
+  comScore = 0;
+  playerScoreNode.textContent = 0;
+  comScoreNode.textContent = 0;
+  buttons.forEach(btn => btn.addEventListener('click', playRound));
+}
+
 function playRound(e) {
   const playerChoice = parseInt(this.value);
   const comChoice = getComputerChoice();
@@ -51,21 +76,12 @@ function playRound(e) {
   displayChoice(playerChoice, comChoice);
   displayResult(resultFlag);
   updateScore(resultFlag);
-  checkEndGame();
-}
 
-function checkEndGame() {
-  if (playerScore < 5 && comScore < 5)
-    return;
-  
-  const finalResult = document.querySelector('#final-result');
-  finalResult.textContent = "Final result: ";
-  if (playerScore > comScore)
-    finalResult.textContent += "YOU WIN!";
-  else
-    finalResult.textContent += "YOU LOSE.";
-  
-  buttons.forEach(btn => btn.removeEventListener('click', playRound));
+  if (checkEndGame()) {
+    displayFinalResult();
+    buttons.forEach(btn => btn.removeEventListener('click', playRound));
+    document.body.appendChild(restartBtn);
+  }
 }
 
 // set up elements and event listeners
@@ -76,3 +92,7 @@ let playerScore = 0;
 let comScore = 0;
 const playerScoreNode = document.querySelector('.score.player');
 const comScoreNode = document.querySelector('.score.com');
+
+const restartBtn = document.createElement('button');
+restartBtn.textContent = "Restart Game";
+restartBtn.addEventListener('click', restartGame);
