@@ -12,7 +12,6 @@ function compareChoice(playerChoice, comChoice) {
 }
 
 function displayResult(resultFlag) {
-  const result = document.querySelector('p#result');
   if (resultFlag == 0)
     result.textContent = "Draw. You both did well.";
   else if (resultFlag == 1)
@@ -31,7 +30,6 @@ function choiceToString(choice) {
 }
 
 function displayChoice(playerChoice, comChoice) {
-  const choices = document.querySelector('p#choices');
   choices.textContent = `Player chose ${choiceToString(playerChoice)}. `;
   choices.textContent += `Computer chose ${choiceToString(comChoice)}.`;
 }
@@ -50,7 +48,6 @@ function checkEndGame() {
 }
 
 function displayFinalResult() {
-  const finalResult = document.querySelector('#final-result');
   finalResult.textContent = "Final result: ";
   if (playerScore > comScore)
     finalResult.textContent += "YOU WIN!";
@@ -66,6 +63,10 @@ function restartGame() {
   playerScoreNode.textContent = 0;
   comScoreNode.textContent = 0;
   buttons.forEach(btn => btn.addEventListener('click', playRound));
+
+  choices.textContent = "";
+  result.textContent = "";
+  finalResult.textContent = "";
 }
 
 function playRound(e) {
@@ -92,6 +93,10 @@ let playerScore = 0;
 let comScore = 0;
 const playerScoreNode = document.querySelector('.score.player');
 const comScoreNode = document.querySelector('.score.com');
+
+const choices = document.querySelector('p#choices');
+const result = document.querySelector('p#result');
+const finalResult = document.querySelector('#final-result');
 
 const restartBtn = document.createElement('button');
 restartBtn.textContent = "Restart Game";
