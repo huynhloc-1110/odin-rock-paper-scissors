@@ -11,9 +11,7 @@ function compareChoice(playerChoice, comChoice) {
     return 1;
 }
 
-function displayResult(playerChoice, comChoice) {
-  let resultFlag = compareChoice(playerChoice, comChoice);
-
+function displayResult(resultFlag) {
   const result = document.querySelector('p#result');
   if (resultFlag == 0)
     result.textContent = "Draw. You both did well.";
@@ -38,14 +36,43 @@ function displayChoice(playerChoice, comChoice) {
   choices.textContent += `Computer chose ${choiceToString(comChoice)}.`;
 }
 
+function updateScore(resultFlag) {
+  if (resultFlag == 1)
+    playerScoreNode.textContent = ++playerScore;
+  else if (resultFlag == -1)
+    comScoreNode.textContent = ++comScore;
+}
+
 function playRound(e) {
   const playerChoice = parseInt(this.value);
   const comChoice = getComputerChoice();
+  const resultFlag = compareChoice(playerChoice, comChoice);
 
   displayChoice(playerChoice, comChoice);
-  displayResult(playerChoice, comChoice);
+  displayResult(resultFlag);
+  updateScore(resultFlag);
+  checkEndGame();
+}
+
+function checkEndGame() {
+  if (playerScore < 5 && comScore < 5)
+    return;
+  
+  const finalResult = document.querySelector('#final-result');
+  finalResult.textContent = "Final result: ";
+  if (playerScore > comScore)
+    finalResult.textContent += "YOU WIN!";
+  else
+    finalResult.textContent += "YOU LOSE.";
+  
+  buttons.forEach(btn => btn.removeEventListener('click', playRound));
 }
 
 // set up elements and event listeners
 const buttons = document.querySelectorAll('button.choice');
 buttons.forEach(btn => btn.addEventListener('click', playRound));
+
+let playerScore = 0;
+let comScore = 0;
+const playerScoreNode = document.querySelector('.score.player');
+const comScoreNode = document.querySelector('.score.com');
