@@ -97,6 +97,10 @@ function updateChoiceUI() {
 }
 
 function updateResultUI() {
+  // remove style from final result
+  txtResult.classList.remove('win');
+  txtResult.classList.remove('lose');
+
   if (roundResult == 1) {
     txtResult.textContent = WIN_MSG;
   } else if (roundResult == 0) {
@@ -115,8 +119,10 @@ function updateScoreUI() {
 
 function displayWinner() {
   if (playerScore == 5) {
+    txtResult.classList.add('win');
     txtResult.textContent = FINAL_WIN_MSG;
   } else {
+    txtResult.classList.add('lose');
     txtResult.textContent = FINAL_LOSE_MSG;
   }
 }

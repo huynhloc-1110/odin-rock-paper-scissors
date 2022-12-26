@@ -45,6 +45,16 @@ header {
   font-size: 20px;
 }
 
+.lose {
+  color: red;
+  font-weight: bold;
+}
+
+.win {
+  color: green;
+  font-weight: bold;
+}
+
 .input-container {
   text-align: center;
 }
