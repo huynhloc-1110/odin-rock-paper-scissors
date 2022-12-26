@@ -1,0 +1,66 @@
+@media (min-width: 550px) {
+  body {
+    padding: 0 20%;
+  }
+}
+
+header {
+  margin: 20px 0;
+  text-align: center;
+  border: 2px solid black;
+}
+
+.title {
+ text-transform: uppercase; 
+}
+
+.display-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.display-item {
+  text-align: center;
+}
+
+#player-choice, #com-choice {
+  font-size: 80px;
+}
+
+.score {
+  font-size: 80px;
+}
+
+.score p {
+  margin: 20px;
+}
+
+#round-result {
+  font-size: 20px;
+}
+
+.input-container {
+  text-align: center;
+}
+
+.choice-input {
+  width: 100px;
+  height: 100px;
+  font-size: 80px;
+}
+
+.restart-input {
+  margin: 40px 20px;
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+
+footer {
+  text-align: center;
+}
+
+small {
+  font-size: 16px;
+}
