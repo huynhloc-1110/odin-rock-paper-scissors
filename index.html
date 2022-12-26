@@ -1,26 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Oẳn tù tì</title>
+
+  <link rel="stylesheet" href="asset/css/style.css">
 </head>
 <body>
-  <h1>Rock-Paper-Scissor</h1>
-  <h2 id="score">Score: 
-    <span class="score player">0</span> - 
-    <span class="score com">0</span>
-  </h2>
-  <p>Choose your weapon:</p>
-  <p>
-    <button class="choice" value="0">Rock</button>
-    <button class="choice" value="1">Paper</button>
-    <button class="choice" value="2">Scissors</button>
-  </p>
-  <p id="choices"></p>
-  <p id="result"></p>
-  <p id="final-result"></p>
-  <script src="script.js"></script>
+  <header>
+    <h1 class="title">Oẳn tù tì</h1>
+  </header>
+
+  <main>
+    <div class="display-container">
+      <div class="display-item choice">
+        <h3 id="player-name">Người dùng</h3>
+        <img src="" alt="Lựa chọn của người dùng">
+      </div>
+      <div class="display-item choice">
+        <h3 id="player-name">Máy tính</h3>
+        <img src="" alt="Lựa chọn của người dùng">
+      </div>
+      <div class="display-item score">
+        <p>
+          <span id="player-score">0</span> : 
+          <span id="com-score">0</span>
+        </p>
+      </div>
+    </div>
+    <div class="input-container">
+      <h2>Chọn búa, kéo hoặc bao</h2>
+      <div class="choice-container">
+        <button class="choice-input" value="0">
+          <img src="" alt="Búa">
+        </button>
+        <button class="choice-input" value="2">
+          <img src="" alt="Kéo">
+        </button>
+        <button class="choice-input" value="1">
+          <img src="" alt="Bao">
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <small>&copy; Copyright 2022, huynhlocle</small>
+  </footer>
+
+  <script src="asset/script/script.js"></script>
 </body>
 </html>
